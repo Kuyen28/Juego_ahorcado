@@ -1,6 +1,8 @@
 secret_word = "hola"
 display_word = "_ " * len(secret_word)
 user_chars = []
+wins = 0
+loose = 0
 user_option = ""
 hang_person = ['''
       +---+
@@ -83,22 +85,18 @@ while user_option != "3":
                             guess_word += "_ "
                     print(guess_word)
                 else:
-                    print("Esa letra no está en la palabra")
-                    if((user_chars) == len(hang_person)) -1:
-                        print("Perdiste")
-                        print(hang_person[-1])
-                        exit()
                     print(hang_person[len(user_chars)])
             elif(user_guess == "volver"):
                 exit_option = True
             else:
                 if(user_guess == secret_word):
                     print("Ganaste")
-                    exit()
+                    wins += 1
                 else:
                     print("Perdiste")
+                    loose += 1
                     print(hang_person[-1])
     elif(user_option == "2"):
-        pass
+        print(f"Ganaste {wins} veces y perdiste {loose} veces ")
     elif(user_option == "3"):
-        pass
+        print("¡Gracias por jugar al ahorcadito!")
